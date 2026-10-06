@@ -1,8 +1,10 @@
-# Project Machine Learning - SDGs 2: Mengakhiri Kelaparan
+# Project Machine Learning - SDGs 2: Tanpa Kelaparan
 
-## Penerapan Artificial Intelligence untuk Memprediksi Kebutuhan Beras dalam Mendukung SDGs 2: Mengakhiri Kelaparan di Kota Kendari
+## Prediksi Tingkat Ketahanan Pangan Provinsi di Indonesia Bulan Berikutnya Menggunakan Decision Tree dan Random Forest untuk Mendukung SDGs 2: Mengahiri kelaparan
 
-Proyek ini dikembangkan untuk memenuhi tugas mata kuliah Kecerdasan Buatan (Artificial Intelligence). Fokus penelitian adalah membangun model Machine Learning untuk memprediksi kebutuhan beras masyarakat Kota Kendari berdasarkan data historis jumlah penduduk dan konsumsi beras.
+Proyek ini dikembangkan untuk memenuhi tugas mata kuliah Kecerdasan Buatan (Artificial Intelligence). Fokus penelitian adalah membangun model Machine Learning untuk memprediksi tingkat ketahanan pangan provinsi di Indonesia pada bulan berikutnya berdasarkan data historis indikator ketahanan pangan.
+
+Prediksi dilakukan menggunakan algoritma Decision Tree dan Random Forest untuk membantu pengambilan keputusan dalam perencanaan pangan serta mendukung pencapaian Sustainable Development Goals (SDGs) tujuan ke-2 yaitu Tanpa Kelaparan (Zero Hunger).
 
 ---
 
@@ -14,132 +16,116 @@ Proyek ini dikembangkan untuk memenuhi tugas mata kuliah Kecerdasan Buatan (Arti
 
 **Program Studi:** Ilmu Komputer
 
-**Fakultas:** Matematika dan Ilmu Pengetahuan Alam
+**Fakultas:** Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA)
 
-**Instansi:** Universitas Halu Oleo
-
----
-
-## 2. Latar Belakang & Keterkaitan SDGs
-
-### 2.1 SDGs 2: Mengakhiri Kelaparan
-
-Pertumbuhan jumlah penduduk menyebabkan kebutuhan pangan, khususnya beras, terus meningkat setiap tahun. Oleh karena itu diperlukan metode prediksi yang dapat membantu perencanaan kebutuhan pangan secara lebih efektif.
-
-Melalui penerapan Artificial Intelligence dan Machine Learning, kebutuhan beras masyarakat dapat diprediksi berdasarkan data historis sehingga dapat membantu pengambilan keputusan dalam perencanaan pangan.
+**Universitas:** Universitas Halu Oleo
 
 ---
 
-## 3. Tujuan Proyek
+## 2. Latar Belakang
 
-1. Membangun model Machine Learning untuk memprediksi kebutuhan beras Kota Kendari.
-2. Menganalisis pengaruh jumlah penduduk terhadap kebutuhan beras.
-3. Membandingkan performa algoritma Decision Tree dan Random Forest.
-4. Menghasilkan prediksi kebutuhan beras pada tahun berikutnya.
+Ketahanan pangan merupakan salah satu aspek penting dalam pembangunan nasional. Ketersediaan pangan yang cukup, aman, dan terjangkau menjadi faktor utama dalam meningkatkan kualitas hidup masyarakat.
+
+Dengan memanfaatkan teknologi Artificial Intelligence (AI), data historis ketahanan pangan dapat dianalisis untuk menghasilkan prediksi kondisi pangan pada periode berikutnya. Hasil prediksi ini dapat digunakan sebagai bahan pertimbangan dalam penyusunan kebijakan pangan daerah maupun nasional.
+
+---
+
+## 3. Tujuan Penelitian
+
+Tujuan dari penelitian ini adalah:
+
+1. Menganalisis data ketahanan pangan provinsi di Indonesia.
+2. Membangun model prediksi menggunakan algoritma Decision Tree.
+3. Membangun model prediksi menggunakan algoritma Random Forest.
+4. Membandingkan performa kedua algoritma.
+5. Mendukung pencapaian SDGs 2: Mengahiri Kalparan melalui pemanfaatan teknologi AI.
 
 ---
 
 ## 4. Dataset
 
-### 4.1 Sumber Data
+Dataset yang digunakan berisi data indikator ketahanan pangan provinsi di Indonesia, seperti:
 
-- Badan Pusat Statistik (BPS)
-- Kaggle
+- Provensi
+- Bulan Rilis
+- Indeks ketersediaan
+- Indeks keterjaungkauan
+- Indeks Pemanfaatan
+- Indeks Komposit
 
-### 4.2 Variabel Dataset
-
-| Variabel | Keterangan |
-|-----------|------------|
-| Tahun | Tahun Pengamatan |
-| Penduduk (Ribu Jiwa) | Jumlah Penduduk Kota Kendari |
-| Produksi Beras (Ton) | Produksi Beras Tahunan |
-| Konsumsi Beras per Kapita | Konsumsi Beras Per Orang |
-| Konsumsi Beras (Ton) | Target Prediksi |
-
-### 4.3 Periode Data
-
-2018 – 2024
+Data diperoleh dari sumber resmi pemerintah Indonesia dan telah diproses sebelum digunakan dalam pelatihan model.
 
 ---
 
-## 5. Tahapan Penelitian
+## 5. Metode Penelitian
 
-1. Import Dataset
-2. Data Cleaning
-3. Preprocessing
-4. Exploratory Data Analysis (EDA)
-5. Feature Selection
-6. Train-Test Split
-7. Pemodelan Machine Learning
-8. Evaluasi Model
-9. Prediksi Kebutuhan Beras
+Tahapan penelitian:
+
+1. Pengumpulan Data
+2. Pembersihan Data (Data Cleaning)
+3. Analisis Data Eksploratif (EDA)
+4. Pembagian Data Latih dan Data Uji
+5. Pelatihan Model Decision Tree
+6. Pelatihan Model Random Forest
+7. Evaluasi Model
+8. Prediksi Tingkat Ketahanan Pangan Bulan Berikutnya
 
 ---
 
 ## 6. Algoritma yang Digunakan
 
-### 6.1 Decision Tree Regressor
+### Decision Tree
 
-Digunakan untuk memprediksi kebutuhan beras berdasarkan pola hubungan antara tahun dan jumlah penduduk.
+Decision Tree merupakan algoritma pembelajaran mesin yang bekerja dengan membentuk struktur pohon keputusan berdasarkan atribut yang paling berpengaruh terhadap target prediksi.
 
-### 6.2 Random Forest Regressor
+### Random Forest
 
-Menggunakan kumpulan Decision Tree untuk meningkatkan stabilitas dan akurasi prediksi.
-
----
-
-## 7. Hasil Evaluasi Model
-
-| Metrik | Decision Tree | Random Forest |
-|---------|---------:|---------:|
-| MAE | 1316.14 | 1529.40 |
-| MSE | 2263596.27 | 2870420.63 |
-| RMSE | 1504.53 | 1694.23 |
-| R² Score | -3.26 | -4.40 |
-
-### 7.1 Kesimpulan Evaluasi
-
-- Decision Tree menghasilkan nilai MAE dan RMSE yang lebih rendah.
-- Random Forest memiliki tingkat kesalahan yang lebih besar dibanding Decision Tree.
-- Berdasarkan hasil evaluasi, Decision Tree memberikan performa yang lebih baik pada dataset yang digunakan.
+Random Forest merupakan pengembangan dari Decision Tree yang membangun banyak pohon keputusan dan menggabungkan hasilnya sehingga menghasilkan prediksi yang lebih stabil dan akurat.
 
 ---
 
-## 8. Prediksi Kebutuhan Beras
-
-| Tahun | Prediksi Decision Tree | Prediksi Random Forest |
-|---------|---------:|---------:|
-| 2025 | 32530.62 Ton | 32317.37 Ton |
-| 2026 | 32530.62 Ton | 32317.37 Ton |
-| 2027 | 32530.62 Ton | 32317.37 Ton |
-
----
-
-## 9. Teknologi dan Library
-
-### 9.1 Bahasa Pemrograman
+## 7. Tools dan Library
 
 - Python
-
-### 9.2 Library
-
+- Google Colab
 - Pandas
 - NumPy
 - Matplotlib
 - Seaborn
 - Scikit-Learn
 
-### 9.3 Platform
+---
 
-- Google Colab
-- GitHub
+## 8. Evaluasi Model
+
+Model dievaluasi menggunakan beberapa metrik, antara lain:
+
+- MAE (Mean Absolute Error)
+- MSE (Mean Squared Error)
+- RMSE (Root Mean Squared Error)
+- R² Score
 
 ---
 
-## 10. Referensi
+## 9. Hasil yang Diharapkan
 
-1. Badan Pusat Statistik (BPS)
-2. Dataset Kaggle
-3. Scikit-Learn Documentation
-4. Pandas Documentation
-5. Sustainable Development Goals (SDGs)
+Penelitian ini diharapkan dapat:
+
+- Menghasilkan model prediksi ketahanan pangan yang akurat.
+- Membantu pengambilan keputusan berbasis data.
+- Memberikan gambaran kondisi ketahanan pangan pada bulan berikutnya.
+- Mendukung implementasi SDGs 2 (Tanpa Kelaparan).
+
+---
+
+## 10. Struktur Repository
+
+```text
+Prediksi-Ketahanan-Pangan-SDGs2/
+│
+├── data/
+├── notebook/
+├── model/
+├── output/
+├── README.md
+└── requirements.txt
