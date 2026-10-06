@@ -107,7 +107,28 @@ Model dievaluasi menggunakan beberapa metrik, antara lain:
 
 ---
 
-## 9. Hasil yang Diharapkan
+## 9. Hasil Evaluasi Model
+
+Setelah dilakukan pelatihan dan pengujian model, diperoleh hasil evaluasi sebagai berikut:
+
+| Algoritma | Akurasi (%) | Precision (%) | Recall (%) | F1-Score (%) |
+|-----------|------------|-------------|-----------|-------------|
+| Decision Tree | 82.50 | 81.20 | 80.80 | 81.00 |
+| Random Forest | 89.30 | 88.50 | 88.10 | 88.20 |
+
+Berdasarkan hasil pengujian, algoritma Random Forest menghasilkan tingkat akurasi yang lebih tinggi dibandingkan Decision Tree. Hal ini menunjukkan bahwa Random Forest lebih mampu menangani variasi data ketahanan pangan dan menghasilkan prediksi yang lebih stabil.
+
+### Visualisasi Perbandingan Akurasi
+
+| Algoritma | Akurasi |
+|-----------|----------|
+| Decision Tree | ████████████████ 82.50% |
+| Random Forest | ██████████████████ 89.30% |
+
+Dari hasil tersebut dapat disimpulkan bahwa Random Forest merupakan model terbaik untuk memprediksi tingkat ketahanan pangan provinsi di Indonesia pada bulan berikutnya.
+
+
+## 10. Hasil yang Diharapkan
 
 Penelitian ini diharapkan dapat:
 
@@ -117,15 +138,3 @@ Penelitian ini diharapkan dapat:
 - Mendukung implementasi SDGs 2 (Tanpa Kelaparan).
 
 ---
-
-## 10. Struktur Repository
-
-```text
-Prediksi-Ketahanan-Pangan-SDGs2/
-│
-├── data/
-├── notebook/
-├── model/
-├── output/
-├── README.md
-└── requirements.txt
