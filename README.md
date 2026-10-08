@@ -1,6 +1,6 @@
 # Project Machine Learning - SDGs 2: Tanpa Kelaparan
 
-## Prediksi Tingkat Ketahanan Pangan Provinsi di Indonesia Bulan Berikutnya Menggunakan Decision Tree dan Random Forest untuk Mendukung SDGs 2: Mengahiri kelaparan
+## Prediksi Tingkat Ketahanan Pangan Provinsi di Indonesia Bulan Berikutnya untuk Mendukung SDGs 2: Mengahiri kelaparan
 
 Proyek ini dikembangkan untuk memenuhi tugas mata kuliah Kecerdasan Buatan (Artificial Intelligence). Fokus penelitian adalah membangun model Machine Learning untuk memprediksi tingkat ketahanan pangan provinsi di Indonesia pada bulan berikutnya berdasarkan data historis indikator ketahanan pangan.
 
