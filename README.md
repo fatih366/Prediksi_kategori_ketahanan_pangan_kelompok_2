@@ -24,8 +24,6 @@ Prediksi dilakukan menggunakan algoritma *Decision Tree* dan *Random Forest* unt
 7. [Prediksi Bulan Berikutnya](#7-prediksi-bulan-berikutnya)
 8. [Keterbatasan Penelitian](#8-keterbatasan-penelitian)
 9. [Kesimpulan dan Saran](#9-kesimpulan-dan-saran)
-10. [Struktur Repositori](#10-struktur-repositori)
-11. [Cara Menjalankan](#11-cara-menjalankan)
 
 ---
 
