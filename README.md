@@ -329,38 +329,6 @@ Setelah model dilatih, prediksi dilakukan untuk seluruh 38 provinsi menggunakan 
 
 ---
 
-## 10. Struktur Repositori
-
-```text
-Prediksi_kategori_ketahanan_pangan_kelompok_2/
-|-- README.md
-|-- dataset_ai_proyek_2.1.csv
-|-- Notebook_AI_Terurut_dan_Diperbaiki.ipynb
-```
-
----
-
-## 11. Cara Menjalankan
-
-### Opsi A - Google Colab (disarankan)
-
-1. Buka `Notebook_AI_Terurut_dan_Diperbaiki.ipynb` di Google Colab.
-2. Jalankan sel secara berurutan dari atas ke bawah.
-3. Saat diminta, unggah berkas `dataset_ai_proyek_2.1.csv`.
-
-### Opsi B - Lokal
-
-```bash
-git clone https://github.com/fatih366/Prediksi_kategori_ketahanan_pangan_kelompok_2.git
-cd Prediksi_kategori_ketahanan_pangan_kelompok_2
-pip install pandas numpy scikit-learn matplotlib seaborn jupyter
-jupyter notebook
-```
-
-> Notebook memakai `google.colab.files` untuk mengunggah dataset. Jika dijalankan secara lokal, ganti sel tersebut dengan `df = pd.read_csv("dataset_ai_proyek_2.1.csv")`.
-
----
-
 ## Teknologi
 
 Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Google Colab.
