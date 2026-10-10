@@ -46,11 +46,12 @@ Prediksi dilakukan menggunakan algoritma *Decision Tree* dan *Random Forest* unt
 
 ## 2. Latar Belakang
 
-Ketahanan pangan merupakan salah satu isu strategis pembangunan nasional dan menjadi inti dari tujuan ke-2 SDGs, yaitu mengakhiri kelaparan, mencapai ketahanan pangan, memperbaiki nutrisi, dan mendorong pertanian berkelanjutan. Kondisi ketahanan pangan di Indonesia tidak seragam antarwilayah. Perbedaan ketersediaan pangan, daya beli masyarakat, dan kualitas pemanfaatan pangan membuat tingkat ketahanan pangan setiap provinsi dapat berbeda dan berubah dari waktu ke waktu.
+Ketahanan pangan merupakan salah satu aspek penting dalam pembangunan karena berkaitan dengan kebutuhan dasar dan kesejahteraan masyarakat. Kondisi ketahanan pangan dapat dilihat melalui beberapa aspek, yaitu ketersediaan pangan, keterjangkauan pangan, dan pemanfaatan pangan yang kemudian dapat menggambarkan kondisi ketahanan pangan secara keseluruhan melalui indeks komposit. Oleh karena itu, kondisi ketahanan pangan perlu dipantau secara berkala agar perubahan yang terjadi dapat diketahui.
 
-Pemantauan yang hanya bersifat deskriptif (melihat kondisi yang sudah terjadi) memiliki keterbatasan karena intervensi kebijakan sering kali baru dilakukan setelah kondisi rentan muncul. Pendekatan prediktif berbasis data historis memungkinkan pemangku kepentingan mengantisipasi provinsi yang berpotensi mengalami penurunan ketahanan pangan sehingga perencanaan dan alokasi sumber daya dapat dilakukan lebih awal.
+Data ketahanan pangan yang tersedia setiap bulan dapat dimanfaatkan untuk melihat pola perubahan dan perkembangan kondisi pangan dari waktu ke waktu. Dengan perkembangan teknologi Artificial Intelligence (AI), data historis tersebut dapat diolah untuk menemukan pola dan membantu memprediksi kondisi ketahanan pangan pada periode berikutnya. Dalam penelitian ini, data yang digunakan meliputi indeks ketersediaan, indeks keterjangkauan, indeks pemanfaatan, dan indeks komposit sebagai input untuk melakukan prediksi nilai indeks komposit pada bulan berikutnya.
+      
+Prediksi nilai komposit bulan berikutnya diharapkan dapat memberikan gambaran awal mengenai kondisi ketahanan pangan sehingga dapat menjadi bahan pertimbangan dalam pemantauan dan perencanaan kebijakan pangan. Penelitian ini menggunakan algoritma Decision Tree dan Random Forest untuk membangun dan membandingkan model prediksi. Penerapan AI dalam penelitian ini diharapkan dapat mendukung pengambilan keputusan berbasis data serta berkontribusi terhadap pencapaian Sustainable Development Goals (SDGs) 2: Zero Hunger.
 
-Berdasarkan hal tersebut, proyek ini membangun model klasifikasi yang memprediksi kategori **Indeks Komposit Ketahanan Pangan provinsi pada bulan berikutnya** dengan memanfaatkan indeks tiga pilar ketahanan pangan (ketersediaan, keterjangkauan, dan pemanfaatan) beserta fitur turunan berbasis deret waktu.
 
 ---
 
@@ -58,17 +59,20 @@ Berdasarkan hal tersebut, proyek ini membangun model klasifikasi yang memprediks
 
 ### 3.1 Rumusan Masalah
 
-1. Bagaimana membangun model klasifikasi untuk memprediksi kategori ketahanan pangan provinsi pada bulan berikutnya?
-2. Bagaimana perbandingan performa *Decision Tree*, *Random Forest*, dan *Random Forest* dengan pembobotan kelas (*balanced*)?
-3. Apakah model *machine learning* mampu mengungguli *baseline* sederhana, dan fitur apa yang paling berpengaruh?
-4. Bagaimana kemampuan model mendeteksi provinsi dengan kategori rentan (kelas 1) yang merupakan kelas minoritas?
+1. Bagaimana perkembangan kondisi ketahanan pangan provinsi di Indonesia dari Juli 2022 sampai Agustus 2026?
+2. Pilar ketahanan pangan apa yang paling berpengaruh terhadap kondisi rentan pangan pada provinsi di Indonesia?Seberapa baik Decision Tree dan       Random Forest memprediksi kategori indeks komposit provinsi pada bulan berikutnya, terutama kategori rentan?
+3. Seberapa baik algoritma Decision Tree dan Random Forest dalam memprediksi kondisi ketahanan pangan provinsi pada bulan berikutnya, khususnya       untuk mengetahui provinsi yang berpotensi mengalami kondisi rentan pangan?
+
 
 ### 3.2 Tujuan
 
-1. Membangun *pipeline* prediksi ketahanan pangan bulan berikutnya yang bebas kebocoran data (*data leakage*).
-2. Membandingkan performa tiga model terhadap *baseline* menggunakan metrik yang sesuai untuk data tidak seimbang.
-3. Mengidentifikasi fitur yang paling berpengaruh terhadap prediksi.
-4. Menghasilkan prediksi ketahanan pangan seluruh provinsi untuk periode berikutnya sebagai alat bantu pengambilan keputusan.
+1. Mengetahui perkembangan kondisi ketahanan pangan provinsi di Indonesia dari Juli 2022 sampai Agustus 2026.
+2. Mengetahui pilar ketahanan pangan yang paling berpengaruh terhadap kondisi rentan pangan pada provinsi di Indonesia.
+3. Membuat dan membandingkan model Decision Tree dan Random Forest untuk memprediksi kondisi ketahanan pangan provinsi pada bulan berikutnya,       khususnya untuk mendeteksi provinsi yang berpotensi mengalami kondisi rentan pangan.
+
+### 3.3 Solusi
+Solusi yang kami dapatkan adalah menggunakan model Decision Tree dan Random Forest untuk memprediksi kategori ketahanan pangan setiap provinsi pada bulan berikutnya berdasarkan kondisi ketersediaan, keterjangkauan, dan pemanfaatan pangan pada bulan berjalan. Hasil prediksi dapat digunakan sebagai sistem deteksi dini untuk mengidentifikasi provinsi yang berpotensi masuk kategori rentan pangan sehingga pemantauan dan perencanaan intervensi dapat dilakukan lebih awal.
+
 
 ---
 
