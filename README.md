@@ -291,11 +291,13 @@ Setelah model dilatih, prediksi dilakukan untuk seluruh 38 provinsi menggunakan 
 - peluang provinsi berada pada kelas rentan (`Peluang_Rentan_Persen`),
 - daftar provinsi prioritas pemantauan (provinsi yang diprediksi kelas 1, diurutkan berdasarkan peluang).
 
-(Isi tabel provinsi prioritas hasil eksekusi akhir notebook di bawah ini.)
 
 | No | Provinsi | Indeks Saat Ini | Prediksi Bulan Depan | Peluang Rentan (%) |
 |----|----------|:---------------:|:--------------------:|:------------------:|
 | 1 | Papua Barat Daya | 1 | 1 | 69.45% |
+| 2 | Papua Barat | 1 | 1 | 69.28% |
+| 3 | Papua Selatan | 1 | 1 | 56.06% |
+| 4 | Sulawesi Barat | 2 | 1 | 54.57% |
 
 > **Catatan:** Prediksi bersifat probabilistik dan digunakan sebagai alat bantu pengambilan keputusan, bukan keputusan akhir.
 
