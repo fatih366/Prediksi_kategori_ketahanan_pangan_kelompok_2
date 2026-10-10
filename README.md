@@ -31,7 +31,7 @@ Prediksi dilakukan menggunakan algoritma *Decision Tree* dan *Random Forest* unt
 
 | No | Nama | NIM |
 |----|------|-----|
-| 1 | Fatih Maulana | F1G125031 |
+| 1 | Fatihah Maulana | F1G125031 |
 | 2 | Cinta Aprianti Hartono Haris | F1G125028 |
 | 3 | Waode Nur Aisya | F1G125019 |
 
