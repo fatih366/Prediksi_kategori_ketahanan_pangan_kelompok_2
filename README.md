@@ -295,7 +295,7 @@ Setelah model dilatih, prediksi dilakukan untuk seluruh 38 provinsi menggunakan 
 
 | No | Provinsi | Indeks Saat Ini | Prediksi Bulan Depan | Peluang Rentan (%) |
 |----|----------|:---------------:|:--------------------:|:------------------:|
-| 1 | - | - | - | - |
+| 1 | Papua Barat Daya | 1 | 1 | 69.45% |
 
 > **Catatan:** Prediksi bersifat probabilistik dan digunakan sebagai alat bantu pengambilan keputusan, bukan keputusan akhir.
 
