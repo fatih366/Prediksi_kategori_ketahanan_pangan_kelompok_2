@@ -1,4 +1,4 @@
-# Project Machine Learning - SDGs 2: Tanpa Kelaparan
+# Project (kecil) Kecerdasan Buatan - SDGs 2: Tanpa Kelaparan
 
 ## Prediksi Tingkat Ketahanan Pangan Provinsi di Indonesia Bulan Berikutnya untuk Mendukung SDGs 2: Mengakhiri Kelaparan
 
