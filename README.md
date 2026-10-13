@@ -1,342 +1,460 @@
-# Project (kecil) Kecerdasan Buatan - SDGs 2: Tanpa Kelaparan
+<div align="center">
 
-## Prediksi Tingkat Ketahanan Pangan Provinsi di Indonesia Bulan Berikutnya untuk Mendukung SDGs 2: Mengakhiri Kelaparan
+# 🌾 Prediksi Kategori Ketahanan Pangan Provinsi di Indonesia
+
+### Project Kecerdasan Buatan: SDGs 2 Tanpa Kelaparan
+
+Prediksi tingkat ketahanan pangan provinsi di Indonesia pada **bulan berikutnya** menggunakan *Decision Tree* dan *Random Forest* sebagai sistem peringatan dini.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458)
+![Google Colab](https://img.shields.io/badge/Google-Colab-F9AB00)
 ![Status](https://img.shields.io/badge/Status-Selesai-brightgreen)
 ![SDGs](https://img.shields.io/badge/SDGs-2%20Zero%20Hunger-yellow)
 
-Proyek ini dikembangkan untuk memenuhi tugas mata kuliah Kecerdasan Buatan (*Artificial Intelligence*). Fokus penelitian adalah membangun model *Machine Learning* untuk memprediksi tingkat ketahanan pangan provinsi di Indonesia pada bulan berikutnya berdasarkan data historis indikator ketahanan pangan.
-
-Prediksi dilakukan menggunakan algoritma *Decision Tree* dan *Random Forest* untuk membantu pengambilan keputusan dalam perencanaan pangan serta mendukung pencapaian *Sustainable Development Goals* (SDGs) tujuan ke-2 yaitu Tanpa Kelaparan (*Zero Hunger*).
+</div>
 
 ---
 
-## Daftar Isi
+## 📑 Daftar Isi
 
-1. [Anggota Kelompok](#1-anggota-kelompok)
-2. [Latar Belakang](#2-latar-belakang)
-3. [Rumusan Masalah dan Tujuan](#3-rumusan-masalah-dan-tujuan)
-4. [Dataset](#4-dataset)
-5. [Metodologi](#5-metodologi)
-6. [Hasil dan Pembahasan](#6-hasil-dan-pembahasan)
-7. [Prediksi Bulan Berikutnya](#7-prediksi-bulan-berikutnya)
-8. [Keterbatasan Penelitian](#8-keterbatasan-penelitian)
-9. [Kesimpulan dan Saran](#9-kesimpulan-dan-saran)
-
----
-
-## 1. Anggota Kelompok
-
-| No | Nama | NIM |
-|----|------|-----|
-| 1 | Fatihah Maulana | F1G125031 |
-| 2 | Cinta Aprianti Hartono Haris | F1G125028 |
-| 3 | Waode Nur Aisya | F1G125019 |
-
-**Program Studi:** Ilmu Komputer
-**Mata Kuliah:** Kecerdasan Buatan
-**Dosen Pengampu:** (isi nama dosen)
-**Kelompok:** 2
+1. [Ringkasan Proyek](#1--ringkasan-proyek)
+2. [Latar Belakang](#2--latar-belakang)
+3. [Rumusan Masalah dan Tujuan](#3--rumusan-masalah-dan-tujuan)
+4. [Solusi yang Diusulkan](#4--solusi-yang-diusulkan)
+5. [Dataset](#5--dataset)
+6. [Input dan Output](#6--input-dan-output)
+7. [Metodologi: 9 Tahapan Pembuatan AI](#7--metodologi-9-tahapan-pembuatan-ai)
+8. [Hasil dan Pembahasan](#8--hasil-dan-pembahasan)
+9. [Prediksi September 2026](#9--prediksi-september-2026)
+10. [Kesimpulan dan Rekomendasi](#10--kesimpulan-dan-rekomendasi)
+11. [Keterbatasan dan Pengembangan Lanjutan](#11--keterbatasan-dan-pengembangan-lanjutan)
+12. [Struktur Repositori](#12--struktur-repositori)
+13. [Cara Menjalankan](#13--cara-menjalankan)
+14. [Tim Pengembang](#14--tim-pengembang)
 
 ---
 
-## 2. Latar Belakang
+## 1. 📌 Ringkasan Proyek
 
-Ketahanan pangan merupakan salah satu aspek penting dalam pembangunan karena berkaitan dengan kebutuhan dasar dan kesejahteraan masyarakat. Kondisi ketahanan pangan dapat dilihat melalui beberapa aspek, yaitu ketersediaan pangan, keterjangkauan pangan, dan pemanfaatan pangan yang kemudian dapat menggambarkan kondisi ketahanan pangan secara keseluruhan melalui indeks komposit. Oleh karena itu, kondisi ketahanan pangan perlu dipantau secara berkala agar perubahan yang terjadi dapat diketahui.
+Proyek ini dikembangkan untuk memenuhi tugas mata kuliah **Kecerdasan Buatan (*Artificial Intelligence*)**. Fokusnya adalah membangun model *Machine Learning* yang memprediksi **kategori Indeks Komposit ketahanan pangan** setiap provinsi di Indonesia pada bulan berikutnya, berdasarkan data historis indikator ketahanan pangan.
 
-Data ketahanan pangan yang tersedia setiap bulan dapat dimanfaatkan untuk melihat pola perubahan dan perkembangan kondisi pangan dari waktu ke waktu. Dengan perkembangan teknologi Artificial Intelligence (AI), data historis tersebut dapat diolah untuk menemukan pola dan membantu memprediksi kondisi ketahanan pangan pada periode berikutnya. Dalam penelitian ini, data yang digunakan meliputi indeks ketersediaan, indeks keterjangkauan, indeks pemanfaatan, dan indeks komposit sebagai input untuk melakukan prediksi nilai indeks komposit pada bulan berikutnya.
-      
-Prediksi nilai komposit bulan berikutnya diharapkan dapat memberikan gambaran awal mengenai kondisi ketahanan pangan sehingga dapat menjadi bahan pertimbangan dalam pemantauan dan perencanaan kebijakan pangan. Penelitian ini menggunakan algoritma Decision Tree dan Random Forest untuk membangun dan membandingkan model prediksi. Penerapan AI dalam penelitian ini diharapkan dapat mendukung pengambilan keputusan berbasis data serta berkontribusi terhadap pencapaian Sustainable Development Goals (SDGs) 2: Zero Hunger.
+Proyek ini mendukung **SDGs tujuan ke-2: Tanpa Kelaparan (*Zero Hunger*)**.
 
+### Hasil Utama
 
----
-
-## 3. Rumusan Masalah dan Tujuan
-
-### 3.1 Rumusan Masalah
-
-1. Bagaimana perkembangan kondisi ketahanan pangan provinsi di Indonesia dari Juli 2022 sampai Agustus 2026?
-2. Pilar ketahanan pangan apa yang paling berpengaruh terhadap kondisi rentan pangan pada provinsi di Indonesia?Seberapa baik Decision Tree dan       Random Forest memprediksi kategori indeks komposit provinsi pada bulan berikutnya, terutama kategori rentan?
-3. Seberapa baik algoritma Decision Tree dan Random Forest dalam memprediksi kondisi ketahanan pangan provinsi pada bulan berikutnya, khususnya       untuk mengetahui provinsi yang berpotensi mengalami kondisi rentan pangan?
-
-
-### 3.2 Tujuan
-
-1. Mengetahui perkembangan kondisi ketahanan pangan provinsi di Indonesia dari Juli 2022 sampai Agustus 2026.
-2. Mengetahui pilar ketahanan pangan yang paling berpengaruh terhadap kondisi rentan pangan pada provinsi di Indonesia.
-3. Membuat dan membandingkan model Decision Tree dan Random Forest untuk memprediksi kondisi ketahanan pangan provinsi pada bulan berikutnya,       khususnya untuk mendeteksi provinsi yang berpotensi mengalami kondisi rentan pangan.
-
-### 3.3 Solusi
-Solusi yang kami dapatkan adalah menggunakan model Decision Tree dan Random Forest untuk memprediksi kategori ketahanan pangan setiap provinsi pada bulan berikutnya berdasarkan kondisi ketersediaan, keterjangkauan, dan pemanfaatan pangan pada bulan berjalan. Hasil prediksi dapat digunakan sebagai sistem deteksi dini untuk mengidentifikasi provinsi yang berpotensi masuk kategori rentan pangan sehingga pemantauan dan perencanaan intervensi dapat dilakukan lebih awal.
-
+| Aspek | Hasil |
+|---|---|
+| Dataset | 1.808 baris, 38 provinsi, periode Juli 2022 s.d. Agustus 2026 |
+| Data latih / uji | 1.314 baris / 380 baris (pembagian berdasarkan waktu) |
+| Model terbaik (F1 Macro) | **Decision Tree**: F1 Macro 0,577, Accuracy 0,697 |
+| Model deteksi rentan terbaik | **Random Forest Balanced**: Recall Kelas 1 = 0,600 |
+| Pilar paling berpengaruh | **Pemanfaatan** (4 dari 5 fitur teratas) |
+| Provinsi prioritas (September 2026) | Papua Barat Daya, Papua Barat, Papua Selatan, Sulawesi Barat |
 
 ---
 
-## 4. Dataset
+## 2. 🌱 Latar Belakang
 
-| Atribut | Keterangan |
-|---------|------------|
-| **Nama file** | `dataset_ai_proyek_2.1.csv` |
-| **Jumlah data** | 1.808 baris dan 8 kolom |
-| **Cakupan wilayah** | 38 provinsi di Indonesia |
-| **Rentang waktu** | Juli 2022 sampai Agustus 2026 (data bulanan) |
-| **Missing value** | Tidak ada |
-| **Data duplikat** | Tidak ada (termasuk duplikat pasangan Provinsi-Periode) |
-| **Sumber data** | (isi sumber data, misalnya Badan Pangan Nasional / Peta Ketahanan dan Kerentanan Pangan) |
-
-### 4.1 Deskripsi Variabel
-
-| Kolom | Tipe | Deskripsi |
-|-------|------|-----------|
-| `Tahun` | Numerik | Tahun rilis data |
-| `Bulan Rilis` | Kategorikal | Bulan rilis data (Januari sampai Desember) |
-| `Provinsi` | Kategorikal | Nama provinsi |
-| `Kode_Provinsi` | Kategorikal | Kode wilayah provinsi |
-| `Indeks_Ketersediaan` | Ordinal (1-3) | Indeks pilar ketersediaan pangan |
-| `Indeks_Keterjangkauan` | Ordinal (1-3) | Indeks pilar keterjangkauan pangan |
-| `Indeks_Pemanfaatan` | Ordinal (1-3) | Indeks pilar pemanfaatan pangan |
-| `Indeks_Komposit` | Ordinal (1-3) | Indeks gabungan ketahanan pangan (basis variabel target) |
-
-### 4.2 Statistik Deskriptif
-
-| Variabel | Rata-rata | Simpangan Baku | Min | Maks |
-|----------|-----------|----------------|-----|------|
-| Indeks Ketersediaan | 2,26 | 0,56 | 1 | 3 |
-| Indeks Keterjangkauan | 2,69 | 0,51 | 1 | 3 |
-| Indeks Pemanfaatan | 2,48 | 0,72 | 1 | 3 |
-| Indeks Komposit | 2,48 | 0,57 | 1 | 3 |
-
-### 4.3 Variabel Target
-
-Variabel target adalah **Indeks Komposit bulan berikutnya** (`Target_Bulan_Berikutnya`) dengan tiga kelas, dengan kelas 1 merupakan kategori **rentan** yang menjadi fokus deteksi dini.
-
-| Kelas | Jumlah Data (keseluruhan) | Proporsi |
-|-------|---------------------------|----------|
-| 1 (rentan) | 63 | 3,7% |
-| 2 | 787 | 46,5% |
-| 3 | 844 | 49,8% |
-| **Total** | **1.694** | **100%** |
-
-Data tidak seimbang (*imbalanced*): kelas rentan hanya sekitar 3,7% dari seluruh data. Kondisi ini memengaruhi pemilihan metrik evaluasi dan strategi pemodelan.
+1. **Pangan adalah kebutuhan dasar** yang perlu dipantau secara berkala.
+2. **Data tersedia setiap bulan**, sehingga pola perubahan antarbulan dapat dibaca dan dipelajari.
+3. **AI dapat berperan sebagai peringatan dini** dengan memprediksi kategori ketahanan pangan bulan berikutnya, sehingga pemantauan dan intervensi dapat direncanakan lebih awal.
 
 ---
 
-## 5. Metodologi
+## 3. ❓ Rumusan Masalah dan Tujuan
 
-Alur penelitian dirancang agar mengikuti sifat data deret waktu dan mencegah kebocoran data.
+### Rumusan Masalah
 
-```text
-Pemuatan Data -> Pembersihan & Pengurutan Waktu -> Pembentukan Target
-      -> Feature Engineering -> EDA -> Split Berbasis Waktu
-      -> Pipeline (Encoding -> Feature Selection -> Model)
-      -> Evaluasi & Perbandingan dengan Baseline -> Prediksi Bulan Berikutnya
+1. Bagaimana membangun model prediksi kategori ketahanan pangan bulan berikutnya menggunakan *Decision Tree* dan *Random Forest*?
+2. Bagaimana kinerja kedua model berdasarkan akurasi, *precision*, *recall*, dan *F1-score*?
+3. Seberapa layak model digunakan sebagai peringatan dini untuk mendukung pencapaian SDGs 2?
+
+### Tujuan
+
+1. Membangun model klasifikasi *Decision Tree* dan *Random Forest*.
+2. Membandingkan kinerja model menggunakan akurasi, *precision*, *recall*, dan *F1-score*.
+3. Mengkaji potensi sistem pemantauan bulanan untuk mendukung SDGs 2.
+
+---
+
+## 4. 💡 Solusi yang Diusulkan
+
+Sistem deteksi dini yang memanfaatkan data bulan berjalan untuk memprediksi kategori bulan berikutnya.
+
+```mermaid
+flowchart LR
+    A["📊 Data bulan ini<br/>4 indeks pangan"] --> B["🤖 Model AI<br/>Decision Tree &<br/>Random Forest"]
+    B --> C["📈 Prediksi<br/>Kategori bulan depan"]
+    C --> D["🔔 Deteksi dini<br/>Provinsi berpotensi rentan"]
 ```
 
-### 5.1 Pra-pemrosesan Data
-
-1. **Konversi periode.** Nama bulan dipetakan ke angka (Januari = 1, ..., Desember = 12), lalu digabung dengan tahun menjadi kolom `Periode` bertipe *datetime*.
-2. **Pengurutan.** Data diurutkan berdasarkan `Provinsi` dan `Periode` agar operasi deret waktu valid.
-3. **Validasi.** Dilakukan pengecekan bulan yang gagal dipetakan (0), duplikat Provinsi-Periode (0), dan transisi bulan yang tidak berurutan (0).
-
-### 5.2 Pembentukan Target (Bulan Berikutnya)
-
-Target dibentuk dengan menggeser (`shift(-1)`) nilai Indeks Komposit satu bulan ke depan **per provinsi**. Sistem memverifikasi bahwa periode berikutnya benar-benar bulan setelahnya; jika terdapat lompatan bulan, target dikosongkan. Data terakhir setiap provinsi tidak memiliki target (38 baris) dan dipakai untuk prediksi akhir.
-
-### 5.3 Rekayasa Fitur (*Feature Engineering*)
-
-Dari empat indeks dasar (ketersediaan, keterjangkauan, pemanfaatan, komposit) dibentuk fitur turunan per provinsi:
-
-| Kelompok Fitur | Deskripsi | Jumlah |
-|----------------|-----------|--------|
-| Indeks saat ini | Nilai indeks pada bulan berjalan | 4 |
-| Perubahan | Selisih nilai dengan bulan sebelumnya (`diff`) | 4 |
-| *Lag* 1 bulan | Nilai indeks satu bulan sebelumnya | 4 |
-| *Lag* 2 bulan | Nilai indeks dua bulan sebelumnya | 4 |
-| Rata-rata 3 bulan | *Rolling mean* tiga bulan terakhir | 4 |
-| **Total fitur numerik** | | **20** |
-| Fitur kategorikal | `Provinsi` (di-*encode* dengan One-Hot) | 1 |
-
-Setelah menghapus baris dengan nilai kosong akibat *lag*, tersisa **1.694 baris** untuk pemodelan.
-
-### 5.4 Pembagian Data Berbasis Waktu
-
-Pembagian data **tidak dilakukan secara acak**, tetapi berdasarkan urutan waktu agar model diuji pada masa depan yang belum pernah dilihat, sesuai kondisi penggunaan nyata.
-
-| Subset | Jumlah Baris | Periode | Proporsi |
-|--------|--------------|---------|----------|
-| Training | 1.314 | 2022-09 sampai 2025-09 | 77,57% |
-| Testing | 380 | 2025-10 sampai 2026-07 | 22,43% |
-
-Distribusi kelas pada data uji: kelas 1 = 15, kelas 2 = 184, kelas 3 = 181. Kelas rentan hanya memiliki 15 sampel pada data uji, sehingga metrik kelas 1 perlu ditafsirkan dengan hati-hati.
-
-### 5.5 Seleksi Fitur
-
-Seleksi fitur menggunakan **Mutual Information** (`SelectKBest`, `k = 40`) setelah proses *One-Hot Encoding*. Seleksi hanya di-*fit* pada data latih di dalam *pipeline* sehingga tidak terjadi kebocoran data dari data uji.
-
-### 5.6 Model yang Digunakan
-
-Seluruh model disusun dalam `Pipeline` scikit-learn: *preprocessing* (One-Hot Encoding) -> seleksi fitur -> model.
-
-| Model | Hiperparameter Utama |
-|-------|----------------------|
-| **Baseline** | Prediksi bulan depan = nilai Indeks Komposit bulan ini (*persistence*) |
-| **Decision Tree** | `max_depth=5`, `min_samples_leaf=5`, `random_state=42` |
-| **Random Forest** | `n_estimators=300`, `max_depth=8`, `min_samples_leaf=3`, `random_state=42` |
-| **Random Forest Balanced** | Sama dengan Random Forest, ditambah `class_weight="balanced"` |
-
-### 5.7 Metrik Evaluasi
-
-Karena data tidak seimbang, akurasi saja tidak memadai. Evaluasi menggunakan:
-
-- *Accuracy*
-- *Precision*, *Recall*, dan *F1-Score* **macro** (setiap kelas berbobot sama)
-- *Precision* dan *Recall* **kelas 1** (kemampuan mendeteksi provinsi rentan)
-- *ROC-AUC* (*one-vs-rest*, macro)
-- *Confusion matrix* dan *classification report*
+**Manfaat:** pemantauan dapat direncanakan lebih awal pada provinsi yang diprediksi rentan.
 
 ---
 
-## 6. Hasil dan Pembahasan
+## 5. 🗂️ Dataset
 
-### 6.1 Perbandingan Performa Model
+| Atribut | Keterangan |
+|---|---|
+| **Sumber** | [Indeks Keamanan Pangan Segar, Badan Pangan Nasional](https://data.badanpangan.go.id/datasetpublications/255/indeks-keamanan-pangan-segar) |
+| **Ukuran** | 1.808 baris × 8 kolom |
+| **Cakupan wilayah** | 38 provinsi |
+| **Periode** | Juli 2022 s.d. Agustus 2026 (50 periode bulanan) |
+| **Missing value** | 0 pada seluruh kolom |
+| **Duplikat Provinsi-Periode** | 0 |
 
-| Model | Accuracy | Precision Macro | Recall Macro | F1 Macro | Precision Kelas 1 | Recall Kelas 1 |
-|-------|:--------:|:---------------:|:------------:|:--------:|:-----------------:|:--------------:|
-| Baseline | 0,668 | 0,575 | 0,566 | **0,569** | 0,357 | 0,333 |
-| Decision Tree | 0,674 | 0,602 | 0,528 | 0,547 | 0,429 | 0,200 |
-| Random Forest | **0,700** | **0,636** | 0,506 | 0,515 | **0,500** | 0,067 |
-| Random Forest Balanced | 0,629 | 0,529 | **0,641** | 0,541 | 0,196 | **0,667** |
+### Deskripsi Kolom
 
-> Nilai ROC-AUC dihitung pada notebook (`Notebook_AI_Terurut_dan_Diperbaiki.ipynb`) dan dapat dilihat setelah sel evaluasi dijalankan.
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| `Tahun` | Numerik | Tahun rilis data |
+| `Bulan Rilis` | Teks | Nama bulan rilis (dikonversi menjadi `Periode`) |
+| `Provinsi` | Kategorikal | Nama provinsi |
+| `Kode_Provinsi` | Numerik | Kode provinsi |
+| `Indeks_Ketersediaan` | Ordinal (1-3) | Pilar ketersediaan pangan |
+| `Indeks_Keterjangkauan` | Ordinal (1-3) | Pilar keterjangkauan pangan |
+| `Indeks_Pemanfaatan` | Ordinal (1-3) | Pilar pemanfaatan pangan |
+| `Indeks_Komposit` | Ordinal (1-3) | Indeks gabungan ketahanan pangan (**basis target**) |
 
-### 6.2 Classification Report per Kelas (Data Uji)
+### Contoh Data
+
+| Tahun | Bulan Rilis | Provinsi | Kode | Ketersediaan | Keterjangkauan | Pemanfaatan | Komposit |
+|---|---|---|---|---|---|---|---|
+| 2022 | Juli | Aceh | 11 | 2 | 3 | 3 | 3 |
+| 2022 | Juli | Sumatera Utara | 12 | 2 | 3 | 3 | 3 |
+| 2022 | Juli | Sumatera Barat | 13 | 2 | 3 | 3 | 3 |
+| 2022 | Juli | Riau | 14 | 2 | 3 | 3 | 3 |
+| 2022 | Juli | Jambi | 15 | 2 | 3 | 3 | 3 |
+
+> ⚠️ Dataset **tidak** memuat jumlah penduduk, konsumsi, atau kebutuhan pangan secara langsung. Hasil harus ditafsirkan sebagai prediksi **kategori indeks komposit** ketahanan pangan.
+
+---
+
+## 6. 🔄 Input dan Output
+
+### Input (Fitur)
+
+| Kelompok Fitur | Contoh | Jumlah |
+|---|---|---|
+| Indeks bulan berjalan | `Indeks_Ketersediaan`, `Indeks_Keterjangkauan`, `Indeks_Pemanfaatan`, `Indeks_Komposit` | 4 |
+| Perubahan dari bulan sebelumnya | `Perubahan_Pemanfaatan`, `Perubahan_Komposit`, ... | 4 |
+| *Lag* 1 bulan | `Lag1_Pemanfaatan`, `Lag1_Komposit`, ... | 4 |
+| *Lag* 2 bulan | `Lag2_Pemanfaatan`, `Lag2_Komposit`, ... | 4 |
+| Rata-rata bergerak 3 bulan | `Rata3_Pemanfaatan`, `Rata3_Komposit`, ... | 4 |
+| Provinsi (*One Hot Encoding*) | `Provinsi_Sulawesi Barat`, ... | 38 |
+| **Total setelah encoding** | | **58** |
+
+### Output (Target)
+
+Kategori `Indeks_Komposit` pada **bulan berikutnya**:
+
+| Kelas | Kategori |
+|:---:|---|
+| **1** | 🔴 Rentan |
+| **2** | 🟡 Sedang |
+| **3** | 🟢 Aman |
+
+---
+
+## 7. 🧭 Metodologi: 9 Tahapan Pembuatan AI
+
+```mermaid
+flowchart LR
+    T1["1. Pengumpulan<br/>Dataset"] --> T2["2. Cleaning &<br/>Preprocessing"]
+    T2 --> T3["3. EDA"]
+    T3 --> T4["4. Feature<br/>Selection"]
+    T4 --> T5["5. Train-Test<br/>Split"]
+    T5 --> T6["6. Pemodelan"]
+    T6 --> T7["7. Evaluasi<br/>Model"]
+    T7 --> T8["8. Prediksi &<br/>Interpretasi"]
+    T8 --> T9["9. Kesimpulan"]
+```
+
+### Tahap 1: Pengumpulan Dataset
+
+Dataset dimuat dari berkas CSV (1.808 baris × 8 kolom) yang bersumber dari Badan Pangan Nasional.
+
+### Tahap 2: Cleaning & Preprocessing
+
+| Langkah | Keterangan |
+|---|---|
+| Pemeriksaan awal | Cek tipe data, *missing value*, duplikat, dan statistik deskriptif |
+| Pembentukan `Periode` | Nama bulan Indonesia dipetakan ke angka, lalu digabung dengan `Tahun` menjadi tanggal. Bulan gagal dipetakan: 0 |
+| Pengurutan | Data diurutkan per `Provinsi` dan `Periode` |
+| Pembuatan target | `Target_Bulan_Berikutnya` = `Indeks_Komposit` bulan berikutnya per provinsi (`shift(-1)`) |
+| Validasi urutan | Target hanya dipakai jika benar-benar bulan kalender berikutnya, jika ada bulan yang lompat target dikosongkan |
+| *Feature engineering* | Perubahan bulanan, *lag* 1 dan 2 bulan, rata-rata bergerak 3 bulan |
+
+**Rentang data setelah cleaning:** 2022-07 sampai 2026-08.
+
+### Tahap 3: Exploratory Data Analysis (EDA)
+
+**Statistik indeks**
+
+| Indeks | Mean | Std | Min | Max |
+|---|:---:|:---:|:---:|:---:|
+| Ketersediaan | 2,26 | 0,56 | 1 | 3 |
+| Keterjangkauan | 2,69 | 0,51 | 1 | 3 |
+| Pemanfaatan | 2,48 | **0,72** | 1 | 3 |
+| Komposit | 2,48 | 0,57 | 1 | 3 |
+
+**Distribusi target (data siap model)**
+
+| Kelas | Jumlah | Persentase |
+|:---:|:---:|:---:|
+| 1 (Rentan) | 63 | 3,7% |
+| 2 (Sedang) | 787 | 46,5% |
+| 3 (Aman) | 844 | 49,8% |
+
+**Temuan penting**
+
+- Pilar **Pemanfaatan** paling bervariasi (std 0,72).
+- Kelas **Rentan sangat sedikit** (3,7%), sehingga data **tidak seimbang**.
+- Korelasi tertinggi dengan target: **Pemanfaatan (0,576)**.
+
+**10 fitur dengan korelasi tertinggi terhadap target (berurutan):**
+`Rata3_Pemanfaatan`, `Indeks_Pemanfaatan`, `Lag1_Pemanfaatan`, `Lag2_Pemanfaatan`, `Rata3_Komposit`, `Indeks_Komposit`, `Lag1_Komposit`, `Lag2_Komposit`, `Indeks_Keterjangkauan`, `Rata3_Keterjangkauan`.
+
+### Tahap 4: Feature Selection
+
+| Langkah | Jumlah Fitur |
+|---|:---:|
+| Fitur setelah *One Hot Encoding* | 58 |
+| Fitur dipilih (`SelectKBest` + *Mutual Information*) | **40** |
+| Fitur tidak dipilih | 18 |
+
+Proses *fit* seleksi fitur **hanya pada data training** agar tidak terjadi *data leakage*.
+
+**10 fitur teratas berdasarkan *Mutual Information***
+
+| Peringkat | Fitur | Mutual Information |
+|:---:|---|:---:|
+| 1 | `Lag1_Pemanfaatan` | 0,1918 |
+| 2 | `Rata3_Pemanfaatan` | 0,1907 |
+| 3 | `Rata3_Komposit` | 0,1892 |
+| 4 | `Lag2_Pemanfaatan` | 0,1772 |
+| 5 | `Indeks_Pemanfaatan` | 0,1765 |
+| 6 | `Indeks_Komposit` | 0,1306 |
+| 7 | `Lag2_Komposit` | 0,1015 |
+| 8 | `Lag1_Komposit` | 0,0876 |
+| 9 | `Rata3_Ketersediaan` | 0,0367 |
+| 10 | `Provinsi_Sulawesi Barat` | 0,0361 |
+
+### Tahap 5: Train-Test Split (Berdasarkan Waktu)
+
+Data dibagi **berdasarkan waktu, bukan acak**, agar model diuji pada periode yang belum pernah dilihat dan tidak "mengintip" masa depan.
+
+| Data | Proporsi | Jumlah | Periode |
+|---|:---:|:---:|---|
+| Training | 77,57% | 1.314 baris | 2022-09 s.d. 2025-09 |
+| Testing | 22,43% | 380 baris | 2025-10 s.d. 2026-07 |
+
+### Tahap 6: Pemodelan
+
+Seluruh model memakai alur **Preprocessing → SelectKBest (40 fitur) → Model** dengan `random_state=42`.
+
+| Model | Deskripsi | Hyperparameter |
+|---|---|---|
+| **Baseline** | Patokan pembanding: memakai `Indeks_Komposit` bulan ini sebagai prediksi bulan depan | n/a |
+| **Decision Tree** | Aturan percabangan seperti pohon | `max_depth=5`, `min_samples_leaf=5` |
+| **Random Forest** | Gabungan banyak pohon, prediksi lebih stabil | `n_estimators=300`, `max_depth=8`, `min_samples_leaf=3` |
+| **RF Balanced** | Random Forest yang menyeimbangkan bobot kelas | Sama seperti Random Forest + `class_weight="balanced"` |
+
+### Tahap 7: Evaluasi Model
+
+Metrik: Accuracy, Precision (macro), Recall (macro), F1 (macro), Precision & Recall Kelas 1 (Rentan), ROC-AUC (OvR, macro), dan *confusion matrix*.
+
+### Tahap 8: Prediksi & Interpretasi
+
+*Feature importance* diambil dari model operasional (model dengan Recall Kelas 1 tertinggi), kemudian dipakai memprediksi bulan berikutnya dari data periode terakhir.
+
+### Tahap 9: Kesimpulan
+
+Pemilihan model terbaik, model prioritas deteksi rentan, dan daftar provinsi prioritas pemantauan.
+
+---
+
+## 8. 📊 Hasil dan Pembahasan
+
+### 8.1 Perbandingan Metrik (380 data uji)
+
+| Model | Accuracy | Prec. Macro | Recall Macro | F1 Macro | Prec. Kelas 1 | Recall Kelas 1 | ROC-AUC |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Baseline | 0,668 | 0,575 | 0,566 | 0,569 | 0,357 | 0,333 | - |
+| **Decision Tree** | **0,697** | **0,717** | 0,545 | **0,577** | **0,750** | 0,200 | 0,779 |
+| Random Forest | **0,697** | 0,690 | 0,525 | 0,547 | 0,667 | 0,133 | **0,825** |
+| **RF Balanced** | 0,642 | 0,536 | **0,629** | 0,549 | 0,205 | **0,600** | 0,793 |
+
+| 🏆 Kategori | Model | Nilai |
+|---|---|---|
+| F1 Macro terbaik | Decision Tree | 0,577 |
+| Deteksi rentan terbaik (Recall Kelas 1) | RF Balanced | 0,600 |
+| ROC-AUC tertinggi | Random Forest | 0,825 |
+
+### 8.2 Confusion Matrix
+
+Baris = kelas aktual, kolom = kelas prediksi (1 = Rentan, 2 = Sedang, 3 = Aman).
+
+**Baseline**
+
+| Aktual \ Prediksi | 1 | 2 | 3 |
+|:---:|:---:|:---:|:---:|
+| **1** | 5 | 10 | 0 |
+| **2** | 9 | 128 | 47 |
+| **3** | 0 | 60 | 121 |
 
 **Decision Tree**
 
-| Kelas | Precision | Recall | F1-Score | Support |
-|:-----:|:---------:|:------:|:--------:|:-------:|
-| 1 | 0,43 | 0,20 | 0,27 | 15 |
-| 2 | 0,63 | 0,77 | 0,70 | 184 |
-| 3 | 0,74 | 0,61 | 0,67 | 181 |
+| Aktual \ Prediksi | 1 | 2 | 3 |
+|:---:|:---:|:---:|:---:|
+| **1** | 3 | 12 | 0 |
+| **2** | 1 | 139 | 44 |
+| **3** | 0 | 58 | 123 |
 
 **Random Forest**
 
-| Kelas | Precision | Recall | F1-Score | Support |
-|:-----:|:---------:|:------:|:--------:|:-------:|
-| 1 | 0,50 | 0,07 | 0,12 | 15 |
-| 2 | 0,67 | 0,74 | 0,71 | 184 |
-| 3 | 0,74 | 0,71 | 0,72 | 181 |
+| Aktual \ Prediksi | 1 | 2 | 3 |
+|:---:|:---:|:---:|:---:|
+| **1** | 2 | 13 | 0 |
+| **2** | 1 | 138 | 45 |
+| **3** | 0 | 56 | 125 |
 
-**Random Forest Balanced**
+**RF Balanced**
 
-| Kelas | Precision | Recall | F1-Score | Support |
-|:-----:|:---------:|:------:|:--------:|:-------:|
-| 1 | 0,20 | 0,67 | 0,30 | 15 |
-| 2 | 0,64 | 0,56 | 0,60 | 184 |
-| 3 | 0,75 | 0,70 | 0,72 | 181 |
+| Aktual \ Prediksi | 1 | 2 | 3 |
+|:---:|:---:|:---:|:---:|
+| **1** | 9 | 6 | 0 |
+| **2** | 32 | 112 | 40 |
+| **3** | 3 | 55 | 123 |
 
-### 6.3 Confusion Matrix (Data Uji)
+### 8.3 Interpretasi Hasil
 
-Baris = kelas aktual, kolom = kelas prediksi.
+- **Decision Tree** unggul pada F1 Macro dan precision, tetapi hanya menangkap **3 dari 15** kasus rentan.
+- **Random Forest** memiliki ROC-AUC tertinggi (0,825), namun paling lemah dalam mendeteksi kelas rentan (**2 dari 15**).
+- **RF Balanced** menangkap **9 dari 15** kasus rentan (Recall 0,600), dengan konsekuensi **35 alarm palsu** (32 kelas sedang + 3 kelas aman diprediksi rentan) dan akurasi lebih rendah.
+- Untuk **peringatan dini**, kehilangan kasus rentan umumnya lebih merugikan daripada alarm palsu, sehingga **RF Balanced dipilih sebagai model operasional**.
 
-| Model | Aktual | Prediksi 1 | Prediksi 2 | Prediksi 3 |
-|-------|:------:|:----------:|:----------:|:----------:|
-| Baseline | 1 | 5 | 10 | 0 |
-| | 2 | 9 | 128 | 47 |
-| | 3 | 0 | 60 | 121 |
-| Decision Tree | 1 | 3 | 12 | 0 |
-| | 2 | 4 | 142 | 38 |
-| | 3 | 0 | 70 | 111 |
-| Random Forest | 1 | 1 | 14 | 0 |
-| | 2 | 1 | 137 | 46 |
-| | 3 | 0 | 53 | 128 |
-| Random Forest Balanced | 1 | 10 | 5 | 0 |
-| | 2 | 39 | 103 | 42 |
-| | 3 | 2 | 53 | 126 |
-
-### 6.4 Pembahasan
-
-1. **Akurasi tertinggi** dicapai *Random Forest* (0,700), tetapi model ini hanya mendeteksi 1 dari 15 provinsi rentan (*recall* kelas 1 = 0,067). Akurasi yang tinggi sebagian besar didorong oleh dua kelas mayoritas.
-2. **Deteksi kelas rentan terbaik** diperoleh *Random Forest Balanced* (*recall* kelas 1 = 0,667; 10 dari 15 terdeteksi). Konsekuensinya, *precision* kelas 1 turun menjadi 0,196 karena 39 data kelas 2 salah diklasifikasikan sebagai kelas 1, sehingga model ini menghasilkan lebih banyak peringatan dini palsu (*false alarm*).
-3. **Trade-off precision-recall** tampak jelas: pembobotan kelas meningkatkan sensitivitas terhadap kelas rentan dengan mengorbankan akurasi keseluruhan (0,629).
-4. **Perbandingan dengan baseline.** Baseline *persistence* menghasilkan F1 macro tertinggi (0,569), sedikit di atas ketiga model. Hal ini menunjukkan bahwa indeks komposit cenderung bertahan dari satu bulan ke bulan berikutnya, sehingga nilai bulan ini sudah menjadi prediktor yang kuat. Model belum memberikan peningkatan yang jelas pada F1 macro, namun *Random Forest* unggul pada akurasi dan *Random Forest Balanced* unggul pada deteksi kelas rentan.
-5. **Pemilihan model.** Berdasarkan F1 macro di antara tiga model, *Decision Tree* terbaik (0,547). Untuk tujuan deteksi dini provinsi rentan, *Random Forest Balanced* dipilih sebagai **model operasional** karena memiliki *recall* kelas 1 tertinggi.
-
-### 6.5 Fitur yang Paling Berpengaruh
-
-Hasil *feature importance* yang tercatat pada notebook (model *Decision Tree*) menunjukkan bahwa pilar **pemanfaatan** pangan dan fitur rata-rata/riwayatnya mendominasi prediksi:
+### 8.4 Feature Importance (RF Balanced)
 
 | Peringkat | Fitur | Importance |
-|:---------:|-------|:----------:|
-| 1 | Rata3_Pemanfaatan | 0,1396 |
-| 2 | Indeks_Pemanfaatan | 0,1248 |
-| 3 | Lag1_Pemanfaatan | 0,0986 |
-| 4 | Rata3_Komposit | 0,0764 |
-| 5 | Lag2_Pemanfaatan | 0,0757 |
-| 6 | Indeks_Komposit | 0,0515 |
-| 7 | Rata3_Keterjangkauan | 0,0466 |
-| 8 | Lag2_Komposit | 0,0409 |
-| 9 | Lag1_Komposit | 0,0372 |
-| 10 | Lag1_Keterjangkauan | 0,0357 |
+|:---:|---|:---:|
+| 1 | `Rata3_Pemanfaatan` | 0,136 |
+| 2 | `Indeks_Pemanfaatan` | 0,128 |
+| 3 | `Lag1_Pemanfaatan` | n/a |
+| 4 | `Rata3_Komposit` | n/a |
+| 5 | `Lag2_Pemanfaatan` | n/a |
+| 6 | `Indeks_Komposit` | n/a |
+| 7 | `Rata3_Keterjangkauan` | n/a |
+| 8 | `Lag1_Komposit` | n/a |
+| 9 | `Lag2_Komposit` | n/a |
+| 10 | `Indeks_Keterjangkauan` | n/a |
 
-Fitur berbasis riwayat (rata-rata 3 bulan dan *lag*) muncul di peringkat atas, yang menegaskan manfaat rekayasa fitur deret waktu.
-
----
-
-## 7. Prediksi Bulan Berikutnya
-
-Setelah model dilatih, prediksi dilakukan untuk seluruh 38 provinsi menggunakan data periode terakhir (**Agustus 2026**) untuk memprediksi kondisi **September 2026**. Keluaran prediksi mencakup:
-
-- kelas Indeks Komposit yang diprediksi untuk bulan berikutnya,
-- peluang provinsi berada pada kelas rentan (`Peluang_Rentan_Persen`),
-- daftar provinsi prioritas pemantauan (provinsi yang diprediksi kelas 1, diurutkan berdasarkan peluang).
-
-
-| No | Provinsi | Indeks Saat Ini | Prediksi Bulan Depan | Peluang Rentan (%) |
-|----|----------|:---------------:|:--------------------:|:------------------:|
-| 1 | Papua Barat Daya | 1 | 1 | 69.45% |
-| 2 | Papua Barat | 1 | 1 | 69.28% |
-| 3 | Papua Selatan | 1 | 1 | 56.06% |
-| 4 | Sulawesi Barat | 2 | 1 | 54.57% |
-
-> **Catatan:** Prediksi bersifat probabilistik dan digunakan sebagai alat bantu pengambilan keputusan, bukan keputusan akhir.
+> Pilar **Pemanfaatan** mendominasi: 4 dari 5 fitur teratas. Hal ini selaras dengan hasil korelasi dan *Mutual Information*.
 
 ---
 
-## 8. Keterbatasan Penelitian
+## 9. 🔮 Prediksi September 2026
 
-1. **Ketidakseimbangan kelas.** Kelas rentan hanya 3,7% dari data dan 15 sampel pada data uji, sehingga metrik kelas 1 bersifat tidak stabil.
-2. **Jumlah fitur terbatas.** Model hanya memakai indeks ketahanan pangan dan turunannya; faktor eksternal seperti harga komoditas, curah hujan, produksi, dan inflasi belum dimasukkan.
-3. **Indeks bersifat diskret (1-3).** Perubahan antarbulan kecil dan banyak provinsi stabil, sehingga model sulit mengungguli *baseline* *persistence*.
-4. **Satu skema pembagian waktu.** Evaluasi menggunakan satu pemisahan latih-uji; validasi silang deret waktu (*time series cross-validation*) belum diterapkan.
-5. **Hiperparameter tetap.** Penyetelan hiperparameter (misalnya *grid search*) belum dilakukan.
+Menggunakan **RF Balanced** dengan data terakhir **Agustus 2026**.
+
+| Prediksi Skor | Jumlah Provinsi |
+|:---:|:---:|
+| 3 (Aman) | 23 |
+| 2 (Sedang) | 11 |
+| 1 (Rentan) | **4** |
+
+### 10 Provinsi dengan Peluang Rentan Tertinggi
+
+| # | Provinsi | Indeks Kini | Prediksi | Peluang Rentan (%) |
+|:---:|---|:---:|:---:|:---:|
+| 1 | **Papua Barat Daya** | 1 | 1 | **69,45** |
+| 2 | **Papua Barat** | 2 | 1 | **69,28** |
+| 3 | **Papua Selatan** | 2 | 1 | **56,06** |
+| 4 | **Sulawesi Barat** | 1 | 1 | **54,57** |
+| 5 | Nusa Tenggara Timur | 2 | 2 | 35,37 |
+| 6 | Papua | 2 | 2 | 35,02 |
+| 7 | Nusa Tenggara Barat | 2 | 2 | 34,04 |
+| 8 | Kalimantan Selatan | 2 | 2 | 30,79 |
+| 9 | Kalimantan Barat | 2 | 2 | 20,58 |
+| 10 | Kalimantan Timur | 2 | 2 | 10,39 |
 
 ---
 
-## 9. Kesimpulan dan Saran
+## 10. ✅ Kesimpulan dan Rekomendasi
 
-### 9.1 Kesimpulan
+### Kesimpulan
 
-1. Model klasifikasi prediksi ketahanan pangan bulan berikutnya berhasil dibangun dengan *pipeline* yang memisahkan data berdasarkan waktu dan melakukan seleksi fitur hanya pada data latih.
-2. *Random Forest* mencapai akurasi tertinggi (0,700), sedangkan *Random Forest Balanced* paling baik dalam mendeteksi provinsi rentan (*recall* kelas 1 = 0,667) meskipun disertai lebih banyak peringatan palsu.
-3. Ketiga model belum melampaui F1 macro *baseline* (0,569), sehingga hasil ini perlu dibaca sebagai bukti bahwa kondisi bulan sebelumnya sudah sangat informatif, bukan sebagai bukti bahwa model sudah optimal.
-4. Pilar pemanfaatan pangan beserta fitur riwayatnya merupakan prediktor yang paling berpengaruh.
+1. Model **Decision Tree** terbaik secara keseluruhan (F1 Macro 0,577; Accuracy 0,697).
+2. Model **Random Forest Balanced** paling baik mendeteksi kondisi rentan (Recall Kelas 1 = 0,600).
+3. Pilar **Pemanfaatan** adalah faktor paling berpengaruh dalam memprediksi indeks komposit bulan berikutnya.
+4. Pada **September 2026**, **4 provinsi** diprediksi rentan: **Papua Barat Daya, Papua Barat, Papua Selatan, dan Sulawesi Barat**.
 
-### 9.2 Saran
+### Rekomendasi
 
-1. Menambahkan variabel eksternal (harga pangan, cuaca, produksi, inflasi) untuk memperkaya informasi model.
-2. Menerapkan teknik penanganan data tidak seimbang yang lebih lanjut (misalnya SMOTE atau penyesuaian ambang keputusan) dan *time series cross-validation*.
-3. Melakukan penyetelan hiperparameter dan mencoba algoritma lain (misalnya *Gradient Boosting* atau XGBoost).
-4. Menggunakan model operasional sebagai sistem peringatan dini bersama pertimbangan pakar, bukan sebagai pengganti keputusan kebijakan.
+1. Gunakan model terbaik berdasarkan F1 Macro untuk melihat performa keseluruhan.
+2. Untuk tujuan deteksi kondisi rentan, gunakan model dengan Recall Kelas 1 tertinggi (RF Balanced).
+3. Jadikan provinsi yang diprediksi kelas 1 sebagai **prioritas pemantauan lebih lanjut**.
+4. Gunakan hasil prediksi AI sebagai **alat bantu pengambilan keputusan, bukan keputusan akhir**.
 
 ---
 
-## Teknologi
+## 11. ⚠️ Keterbatasan dan Pengembangan Lanjutan
 
-Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Google Colab.
+### Keterbatasan
 
-## Lisensi dan Catatan
+- Kelas Rentan sangat sedikit (3,7% data; hanya **15 sampel** pada data uji), sehingga metrik kelas 1 sensitif terhadap perubahan kecil.
+- RF Balanced menghasilkan banyak alarm palsu (35) dan akurasi keseluruhan lebih rendah (0,642).
+- Data berupa indeks kategorikal (1-3) tanpa variabel eksternal seperti harga, cuaca, atau produksi pangan.
+- Target dibatasi pada prediksi **satu bulan ke depan**.
 
-Proyek ini dibuat untuk keperluan akademik. Hasil prediksi bukan merupakan keputusan resmi dan hanya digunakan sebagai alat bantu analisis.
+### Pengembangan Lanjutan
+
+- Menambahkan variabel eksternal (harga pangan, curah hujan, produksi, inflasi).
+- Mencoba teknik penanganan data tidak seimbang lain (misalnya SMOTE) dan algoritma lain (misalnya Gradient Boosting).
+- Melakukan *hyperparameter tuning* dan validasi silang berbasis deret waktu (*time series cross-validation*).
+- Membangun dasbor pemantauan bulanan untuk pemangku kepentingan.
+
+---
+
+## 12. 📁 Struktur Repositori
+
+```
+Prediksi_kategori_ketahanan_pangan_kelompok_2/
+├── Notebook_AI_Google_Colab.ipynb   # Notebook 9 tahap (sesuaikan nama file)
+├── dataset_ai_proyek_2.1.csv        # Dataset (sesuaikan nama file)
+└── README.md                        # Dokumentasi proyek
+```
+
+---
+
+### Library yang Digunakan
+
+| Library | Fungsi |
+|---|---|
+| `pandas`, `numpy` | Manipulasi dan analisis data |
+| `matplotlib`, `seaborn` | Visualisasi |
+| `scikit-learn` | Preprocessing, seleksi fitur, model, dan evaluasi |
+
+---
+
+## 13. 👥 Tim Pengembang
+
+**Kelompok 2**
+
+| No | Nama | NIM |
+|:---:|---|---|
+| 1 | Wa Ode Nur Aisya | F1G125019 |
+| 2 | Cinta Aprilianti Hartono Haris | F1G125028 |
+| 3 | Fatihah Maulana | F1G125031 |
+
+**Dosen Pengampu:** Ilham Julian Efendi, ST., MT
+
+---
+
+<div align="center">
+
+*Dikembangkan untuk mendukung **SDGs 2: Tanpa Kelaparan** 🌾*
+
+</div>
