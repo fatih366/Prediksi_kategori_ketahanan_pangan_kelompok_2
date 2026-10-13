@@ -37,7 +37,7 @@ Prediksi dilakukan menggunakan algoritma *Decision Tree* dan *Random Forest* unt
 
 **Program Studi:** Ilmu Komputer
 **Mata Kuliah:** Kecerdasan Buatan
-**Dosen Pengampu:** Ilham Julian Efend, ST,. M.T.
+**Dosen Pengampu:** Ilham Julian Efendi, ST,. M.T.
 **Kelompok:** 2
 
 ---
