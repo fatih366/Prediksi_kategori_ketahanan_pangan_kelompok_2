@@ -1,4 +1,4 @@
-# Project (kecil) Kecerdasan Buatan - SDGs 2: Tanpa Kelaparan
+# Projek Kecerdasan Buatan - SDGs 2: Tanpa Kelaparan
 
 ## Prediksi Tingkat Ketahanan Pangan Provinsi di Indonesia Bulan Berikutnya untuk Mendukung SDGs 2: Mengakhiri Kelaparan
 
@@ -37,7 +37,7 @@ Prediksi dilakukan menggunakan algoritma *Decision Tree* dan *Random Forest* unt
 
 **Program Studi:** Ilmu Komputer
 **Mata Kuliah:** Kecerdasan Buatan
-**Dosen Pengampu:** Ilham Julian Efendi, ST,. M.T.
+**Dosen Pengampu:** (isi nama dosen)
 **Kelompok:** 2
 
 ---
