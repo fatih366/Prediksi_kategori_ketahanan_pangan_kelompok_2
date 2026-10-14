@@ -6,6 +6,10 @@
 
 Prediksi tingkat ketahanan pangan provinsi di Indonesia pada **bulan berikutnya** menggunakan *Decision Tree* dan *Random Forest* sebagai sistem peringatan dini.
 
+---
+**link Materi**https://drive.google.com/drive/folders/14Im6G67JkbRx-EliCig3tE8ycLOwmuBy
+
+---
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458)
