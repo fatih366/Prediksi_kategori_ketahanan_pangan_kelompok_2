@@ -25,24 +25,37 @@ Prediksi tingkat ketahanan pangan provinsi di Indonesia pada **bulan berikutnya*
 
 ## 📑 Daftar Isi
 
-1. [Ringkasan Proyek](#1--ringkasan-proyek)
-2. [Latar Belakang](#2--latar-belakang)
-3. [Rumusan Masalah dan Tujuan](#3--rumusan-masalah-dan-tujuan)
-4. [Solusi yang Diusulkan](#4--solusi-yang-diusulkan)
-5. [Dataset](#5--dataset)
-6. [Input dan Output](#6--input-dan-output)
-7. [Metodologi: 9 Tahapan Pembuatan AI](#7--metodologi-9-tahapan-pembuatan-ai)
-8. [Hasil dan Pembahasan](#8--hasil-dan-pembahasan)
-9. [Prediksi September 2026](#9--prediksi-september-2026)
-10. [Kesimpulan dan Rekomendasi](#10--kesimpulan-dan-rekomendasi)
-11. [Keterbatasan dan Pengembangan Lanjutan](#11--keterbatasan-dan-pengembangan-lanjutan)
-12. [Struktur Repositori](#12--struktur-repositori)
-13. [Cara Menjalankan](#13--cara-menjalankan)
-14. [Tim Pengembang](#14--tim-pengembang)
-
+1. [Tim Pengembang](#1--tim-pengembang)
+2. [Ringkasan Proyek](#2--ringkasan-proyek)
+3. [Latar Belakang](#3--latar-belakang)
+4. [Rumusan Masalah dan Tujuan](#4--rumusan-masalah-dan-tujuan)
+5. [Solusi yang Diusulkan](#5--solusi-yang-diusulkan)
+6. [Dataset](#6--dataset)
+7. [Input dan Output](#7--input-dan-output)
+8. [Metodologi: 9 Tahapan Pembuatan AI](#8--metodologi-9-tahapan-pembuatan-ai)
+9. [Hasil dan Pembahasan](#9--hasil-dan-pembahasan)
+10. [Prediksi September 2026](#10--prediksi-september-2026)
+11. [Kesimpulan dan Rekomendasi](#11--kesimpulan-dan-rekomendasi)
+12. [Keterbatasan dan Pengembangan Lanjutan](#12--keterbatasan-dan-pengembangan-lanjutan)
 ---
 
-## 1. 📌 Ringkasan Proyek
+
+
+
+## 1. 👥 Tim Pengembang
+
+**Kelompok 2**
+
+| No | Nama | NIM |
+|:---:|---|---|
+| 1 | Wa Ode Nur Aisya | F1G125019 |
+| 2 | Cinta Aprilianti Hartono Haris | F1G125028 |
+| 3 | Fatihah Maulana | F1G125031 |
+
+**Dosen Pengampu:** Ilham Julian Efendi, ST., MT
+
+
+## 2. 📌 Ringkasan Proyek
 
 Proyek ini dikembangkan untuk memenuhi tugas mata kuliah **Kecerdasan Buatan (*Artificial Intelligence*)**. Fokusnya adalah membangun model *Machine Learning* yang memprediksi **kategori Indeks Komposit ketahanan pangan** setiap provinsi di Indonesia pada bulan berikutnya, berdasarkan data historis indikator ketahanan pangan.
 
@@ -61,7 +74,7 @@ Proyek ini mendukung **SDGs tujuan ke-2: Tanpa Kelaparan (*Zero Hunger*)**.
 
 ---
 
-## 2. 🌱 Latar Belakang
+## 3. 🌱 Latar Belakang
 
 1. **Pangan adalah kebutuhan dasar** yang perlu dipantau secara berkala.
 2. **Data tersedia setiap bulan**, sehingga pola perubahan antarbulan dapat dibaca dan dipelajari.
@@ -69,7 +82,7 @@ Proyek ini mendukung **SDGs tujuan ke-2: Tanpa Kelaparan (*Zero Hunger*)**.
 
 ---
 
-## 3. ❓ Rumusan Masalah dan Tujuan
+## 4. ❓ Rumusan Masalah dan Tujuan
 
 ### Rumusan Masalah
 
@@ -85,7 +98,7 @@ Proyek ini mendukung **SDGs tujuan ke-2: Tanpa Kelaparan (*Zero Hunger*)**.
 
 ---
 
-## 4. 💡 Solusi yang Diusulkan
+## 5. 💡 Solusi yang Diusulkan
 
 Sistem deteksi dini yang memanfaatkan data bulan berjalan untuk memprediksi kategori bulan berikutnya.
 
@@ -100,7 +113,7 @@ flowchart LR
 
 ---
 
-## 5. 🗂️ Dataset
+## 6. 🗂️ Dataset
 
 | Atribut | Keterangan |
 |---|---|
@@ -138,7 +151,7 @@ flowchart LR
 
 ---
 
-## 6. 🔄 Input dan Output
+## 7. 🔄 Input dan Output
 
 ### Input (Fitur)
 
@@ -164,7 +177,7 @@ Kategori `Indeks_Komposit` pada **bulan berikutnya**:
 
 ---
 
-## 7. 🧭 Metodologi: 9 Tahapan Pembuatan AI
+## 8. 🧭 Metodologi: 9 Tahapan Pembuatan AI
 
 ```mermaid
 flowchart LR
@@ -282,7 +295,7 @@ Pemilihan model terbaik, model prioritas deteksi rentan, dan daftar provinsi pri
 
 ---
 
-## 8. 📊 Hasil dan Pembahasan
+## 9. 📊 Hasil dan Pembahasan
 
 ### 8.1 Perbandingan Metrik (380 data uji)
 
@@ -299,7 +312,7 @@ Pemilihan model terbaik, model prioritas deteksi rentan, dan daftar provinsi pri
 | Deteksi rentan terbaik (Recall Kelas 1) | RF Balanced | 0,600 |
 | ROC-AUC tertinggi | Random Forest | 0,825 |
 
-### 8.2 Confusion Matrix
+### 9.2 Confusion Matrix
 
 Baris = kelas aktual, kolom = kelas prediksi (1 = Rentan, 2 = Sedang, 3 = Aman).
 
@@ -335,14 +348,14 @@ Baris = kelas aktual, kolom = kelas prediksi (1 = Rentan, 2 = Sedang, 3 = Aman).
 | **2** | 32 | 112 | 40 |
 | **3** | 3 | 55 | 123 |
 
-### 8.3 Interpretasi Hasil
+### 9.3 Interpretasi Hasil
 
 - **Decision Tree** unggul pada F1 Macro dan precision, tetapi hanya menangkap **3 dari 15** kasus rentan.
 - **Random Forest** memiliki ROC-AUC tertinggi (0,825), namun paling lemah dalam mendeteksi kelas rentan (**2 dari 15**).
 - **RF Balanced** menangkap **9 dari 15** kasus rentan (Recall 0,600), dengan konsekuensi **35 alarm palsu** (32 kelas sedang + 3 kelas aman diprediksi rentan) dan akurasi lebih rendah.
 - Untuk **peringatan dini**, kehilangan kasus rentan umumnya lebih merugikan daripada alarm palsu, sehingga **RF Balanced dipilih sebagai model operasional**.
 
-### 8.4 Feature Importance (RF Balanced)
+### 9.4 Feature Importance (RF Balanced)
 
 | Peringkat | Fitur | Importance |
 |:---:|---|:---:|
@@ -361,7 +374,7 @@ Baris = kelas aktual, kolom = kelas prediksi (1 = Rentan, 2 = Sedang, 3 = Aman).
 
 ---
 
-## 9. 🔮 Prediksi September 2026
+## 10. 🔮 Prediksi September 2026
 
 Menggunakan **RF Balanced** dengan data terakhir **Agustus 2026**.
 
@@ -371,7 +384,7 @@ Menggunakan **RF Balanced** dengan data terakhir **Agustus 2026**.
 | 2 (Sedang) | 11 |
 | 1 (Rentan) | **4** |
 
-### 10 Provinsi dengan Peluang Rentan Tertinggi
+### 11 Provinsi dengan Peluang Rentan Tertinggi
 
 | # | Provinsi | Indeks Kini | Prediksi | Peluang Rentan (%) |
 |:---:|---|:---:|:---:|:---:|
@@ -443,19 +456,6 @@ Prediksi_kategori_ketahanan_pangan_kelompok_2/
 | `matplotlib`, `seaborn` | Visualisasi |
 | `scikit-learn` | Preprocessing, seleksi fitur, model, dan evaluasi |
 
----
-
-## 13. 👥 Tim Pengembang
-
-**Kelompok 2**
-
-| No | Nama | NIM |
-|:---:|---|---|
-| 1 | Wa Ode Nur Aisya | F1G125019 |
-| 2 | Cinta Aprilianti Hartono Haris | F1G125028 |
-| 3 | Fatihah Maulana | F1G125031 |
-
-**Dosen Pengampu:** Ilham Julian Efendi, ST., MT
 
 ---
 
